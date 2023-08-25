@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Vietos autoservisas</h1>
+<p>Sveiki atvyke i autoservisa</p>
+<p>Siuo metu turime:</p>
+<ul>
+    <li>paslaugu kiekis: {{ num_paslaugu_kiekis_t }}</li>
+    <li>atliktu uzsakymu_kiekis: {{ num_atliktu_uzsakymu_kiekis_t }}</li>
+    <li>automobiliu kiekis: {{ num_automobiliu_kiekis_t }}</li>
+    <li>uzsakymai: {{ num_uzsakymas_t }}</li>
+    <li>automobiliu modeliai: {{ num_automobiliu_modeliai }}</li>
+</ul>
+{% endblock %}
