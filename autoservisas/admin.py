@@ -5,16 +5,21 @@ from . models import Automobilio_modelis, Automobilis, Uzsakymas, Paslauga, Uzsa
 
 
 class AutomobilisAdmin(admin.ModelAdmin):
-    list_display = ('klientas', 'valstybiniai_nr', 'vin')
+    list_display = ('klientas', 'automobilio_mod_id', 'valstybiniai_nr', 'vin')
     list_filter = ('klientas',)
     search_fields = ('valstybiniai_nr', 'vin')
+
+class Automobilio_modelisAdmin(admin.ModelAdmin):
+    list_display = ('modelis',)
 
 
 class UzsakymoeilutesInline(admin.TabularInline):
     model = Uzsakymoeilutes
     extra = 0
 
-
+class PaslaugaAdmin(admin.ModelAdmin):
+    list_display = ('pavadinimas', 'kaina')
+    search_fields = ('pavadinimas',)
 
 class UzsakymasAdmin(admin.ModelAdmin):
     list_display = ('id', 'data', 'suma')
@@ -25,9 +30,9 @@ class UzsakymasAdmin(admin.ModelAdmin):
 
 
 
-admin.site.register(Automobilio_modelis)
+admin.site.register(Automobilio_modelis, Automobilio_modelisAdmin)
 admin.site.register(Automobilis, AutomobilisAdmin)
 admin.site.register(Uzsakymas, UzsakymasAdmin)
-admin.site.register(Paslauga)
+admin.site.register(Paslauga, PaslaugaAdmin)
 admin.site.register(Uzsakymoeilutes)
 # Register your models here.

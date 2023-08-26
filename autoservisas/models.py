@@ -18,8 +18,6 @@ class Automobilio_modelis(models.Model):
         verbose_name = 'Automobilio modelis'
         verbose_name_plural = 'Automobilio modeliai'
 
-    def __str__(self):
-        return f"{self.marke} {self.modelis} {self.metai} {self.variklis}"
 
 
 class Automobilis(models.Model):
@@ -30,7 +28,10 @@ class Automobilis(models.Model):
 
 
     def __str__(self):
-        return f"{self.automobilio_mod_id.marke} {self.automobilio_mod_id.modelis} {self.valstybiniai_nr} {self.klientas}"
+        return f" {self.valstybiniai_nr} {self.klientas}"
+
+    def automobiliai(self):
+        return ', '.join(f"{auto.marke} {auto.modelis}" for auto in self.automobilis_id.all())
 
     class Meta:
         verbose_name = 'Automobilis'
@@ -86,7 +87,7 @@ class Uzsakymoeilutes(models.Model):
 
 
     def __str__(self):
-        return f"{self.paslauga.id} {self.kiekis} {self.kaina} "
+        return f"{self.kiekis} {self.kaina} "
 
     class Meta:
         verbose_name = 'Uzsakymo eilute'

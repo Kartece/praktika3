@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Paieškos "{{query}}" rezultatai:</h1>
+  </br>
+  {% search_rezults_t %}
+  <ul>
+    {% for auto in search_results_t %}
+      <li>
+        <a href="{{ auto.id }}">{{ auto }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>Nieko neradome :(</p>
+  {% endif %}
+
+  {% endblock %}

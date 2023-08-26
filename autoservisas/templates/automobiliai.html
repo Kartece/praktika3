@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-
 <h1>Automobiliai</h1>
+
 <p>Mūsų servise registruoti automobiliai.</p>
 
-<p> Turime {{ automobilis.automobilio_modelis_id.marke }} {{ automobilis.automobilio_modelis_id.modelis }}</p>
-
+{% for automobilis in automobiliai_t %}
+<p> Turime {{ automobilis.automobilio_modelis_id. }} {{ automobilis.automobilio_modelis_id.modelis }} {{ automobilis_id}}</p>
+{% endfor %}
 
 {% endblock %}
